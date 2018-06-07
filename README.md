@@ -1,23 +1,37 @@
-# raspi2png
+# raspi2bmp
 
-Utility to take a snapshot of the raspberry pi screen and save it as a PNG file
+Inspire from [raspi2png](https://github.com/AndrewFromMelbourne/raspi2png), I modified to capture Raspberry Pi screen without depends on png lib `libpng12-dev` by output direct from frame buffer to BMP format.
 
-    Usage: raspi2png [--pngname name] [--width <width>] [--height <height>] [--compression <level>] [--delay <delay>] [--display <number>] [--stdout] [--help]
+Utility to take a snapshot of the Raspberry Pi screen and save it as a BMP file.
 
-    --pngname,-p - name of png file to create (default is snapshot.png)
+    Usage: raspi2bmp [--output name] [--width <width>] [--height <height>] [--compression <level>] [--delay <delay>] [--display <number>] [--stdout] [--help]
+
+    --output,-o - name of bmp file to create (default is snapshot.bmp)
     --height,-h - image height (default is screen height)
     --width,-w - image width (default is screen width)
     --compression,-c - PNG compression level (0 - 9)
     --delay,-d - delay in seconds (default 0)
     --display,-D - Raspberry Pi display number (default 0)
-	--stdout,-s - write file to stdout
+    --stdout,-s - write file to stdout
     --help,-H - print this usage information
 
-## building
+Example:
 
-You will need to install libpng before you build the program. On Raspbian
+```bash
+raspi2bmp -w 1024 -h 768 -o snapshot.bmp -c 0
+```
 
-sudo apt-get install libpng12-dev
+## Building
 
-Then just type 'make' in the raspi2png directory you cloned from github.
+You will need to build on Raspbian. No depend library required.
 
+Then just type 'make' in the raspi2bmp directory you cloned from github.
+
+## Notice
+
+The compression feature I haven't test yet. Just set `-c 0`.
+
+## TODO
+
+- [] Build shared library `bcm_host` along with binary file.
+- [] Improve performance - reference [info-beamer/tools](https://github.com/info-beamer/tools)

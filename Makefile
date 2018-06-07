@@ -1,8 +1,8 @@
-OBJS=raspi2png.o
-BIN=raspi2png
+OBJS=raspi2bmp.o
+BIN=raspi2bmp
 
-CFLAGS+=-Wall -g -O3 $(shell libpng-config --cflags)
-LDFLAGS+=-L/opt/vc/lib/ -lbcm_host $(shell libpng-config --ldflags) -lm
+CFLAGS+=-Wall -g -O3
+LDFLAGS+=-L/opt/vc/lib/ -lbcm_host -lm
 
 INCLUDES+=-I/opt/vc/include/ -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux
 
@@ -10,7 +10,7 @@ all: $(BIN)
 
 install: $(BIN)
 	install -d -m 755 $(DESTDIR)/usr/bin/
-	install -m 755 $(BIN) $(DESTDIR)/usr/bin/raspi2png
+	install -m 755 $(BIN) $(DESTDIR)/usr/bin/raspi2bmp
 
 %.o: %.c
 	@rm -f $@ 
