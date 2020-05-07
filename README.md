@@ -1,7 +1,15 @@
 # raspi2bmp
 
-Inspire from [raspi2png](https://github.com/AndrewFromMelbourne/raspi2png), I modified to capture Raspberry Pi screen without depends on png lib `libpng12-dev` by output direct from frame buffer to BMP format.
+Inspire from [raspi2png](https://github.com/AndrewFromMelbourne/raspi2png), I modified to capture Raspberry Pi screen without depends on png lib `libpng12-dev` by output direct from framebuffer to BMP format.
 
+
+## Why BMP format?
+
+Short answer: I can't install `libpng12-dev` on Debian distro (required library dependency for [raspi2png](https://github.com/AndrewFromMelbourne/raspi2png)).
+
+
+
+## Usage
 Utility to take a snapshot of the Raspberry Pi screen and save it as a BMP file.
 
     Usage: raspi2bmp [--output name] [--width <width>] [--height <height>] [--compression <level>] [--delay <delay>] [--display <number>] [--stdout] [--help]
